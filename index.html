@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Baithack Balewadi | Taste of Kulhad</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2XC3RV3WNR');
+    </script>
+
+    <style>
+        /* ============ CHAI-LATTE PALETTE ============ */
+        :root {
+            --bg:            #FBF7F0;   /* warm cream */
+            --bg-alt:        #F5EDE2;   /* deeper cream */
+            --surface:       #FFFFFF;
+            --text:          #2B211B;   /* espresso */
+            --text-soft:     #7C6B5D;   /* roasted taupe */
+            --accent:        #B4552D;   /* terracotta */
+            --accent-deep:   #8E3F1E;
+            --accent-tint:   rgba(180, 85, 45, 0.10);
+            --amber:         #D89B4A;   /* caramel */
+            --sage:          #5F7355;   /* herbal green */
+            --border:        #EBE0D2;
+            --border-strong: #DCCDBA;
+
+            --shadow-sm: 0 1px 2px rgba(60, 40, 25, .05), 0 4px 14px rgba(60, 40, 25, .06);
+            --shadow-md: 0 10px 30px rgba(60, 40, 25, .12);
+            --shadow-lg: 0 20px 50px rgba(43, 33, 27, .22);
+
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(circle at 12% 6%, rgba(216, 155, 74, 0.16) 0%, transparent 45%),
+                radial-gradient(circle at 88% 88%, rgba(180, 85, 45, 0.12) 0%, transparent 45%);
+            background-attachment: fixed;
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            padding-bottom: 110px;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ HEADER ============ */
+        header {
+            text-align: center;
+            padding: 36px 16px 26px;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--amber), transparent);
+        }
+
+        .logo-img {
+            width: 220px;
+            max-width: 60%;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+            filter: drop-shadow(0 6px 16px rgba(180, 85, 45, 0.20));
+        }
+
+        .logo-fallback {
+            font-family: 'Fraunces', serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--amber));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .tagline {
+            letter-spacing: 4px;
+            font-weight: 700;
+            font-size: 0.72rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .outlet-info {
+            font-size: 0.85rem;
+            color: var(--text-soft);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .info-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-tint);
+            border: 1px solid rgba(180, 85, 45, 0.18);
+            padding: 6px 15px;
+            border-radius: 999px;
+            color: var(--accent-deep);
+            font-weight: 600;
+            font-size: 0.78rem;
+            margin-top: 10px;
+        }
+
+        /* ============ SEARCH ============ */
+        .search-container {
+            position: sticky;
+            top: 0;
+            z-index: 101;
+            background: rgba(251, 247, 240, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        #search-box {
+            width: 100%;
+            max-width: 600px;
+            padding: 13px 22px;
+            border-radius: 999px;
+            border: 1px solid var(--border-strong);
+            background: var(--surface);
+            color: var(--text);
+            margin: 0 auto;
+            display: block;
+            outline: none;
+            font-size: 0.95rem;
+            font-family: inherit;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease;
+        }
+
+        #search-box::placeholder {
+            color: #B3A597;
+        }
+
+        #search-box:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-tint);
+        }
+
+        /* ============ FILTER NAV ============ */
+        .filter-nav {
+            display: flex;
+            overflow-x: auto;
+            padding: 14px 16px;
+            gap: 10px;
+            background: rgba(251, 247, 240, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            position: sticky;
+            top: 72px;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            scrollbar-width: none;
+        }
+
+        .filter-nav::-webkit-scrollbar { display: none; }
+
+        .filter-btn {
+            background: var(--surface);
+            color: var(--text-soft);
+            border: 1px solid var(--border-strong);
+            padding: 8px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 0.83rem;
+            font-weight: 600;
+            font-family: inherit;
+            box-shadow: 0 1px 2px rgba(60, 40, 25, .04);
+            transition: all 0.22s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            color: #FFF8F1;
+            font-weight: 700;
+            border-color: var(--accent);
+            box-shadow: 0 6px 18px rgba(180, 85, 45, 0.28);
+        }
+
+        /* ============ LAYOUT ============ */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 26px 16px;
+        }
+
+        .category-section {
+            margin-bottom: 46px;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            color: var(--text);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 16px;
+        }
+
+        /* ============ MENU CARD ============ */
+        .menu-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 12px;
+            display: flex;
+            gap: 13px;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(180, 85, 45, 0.35);
+        }
+
+        .menu-item-img {
+            width: 74px;
+            height: 74px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border);
+        }
+
+        .menu-item-img-placeholder {
+            width: 74px;
+            height: 74px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            background: linear-gradient(140deg, #FDF3E6, #F7E6D6);
+            border: 1px dashed rgba(180, 85, 45, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.45rem;
+            user-select: none;
+        }
+
+        .menu-item-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .item-title-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .new-badge {
+            background: var(--sage);
+            color: #F6F4EE;
+            font-size: 0.58rem;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            padding: 3px 7px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .item-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .price {
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: -0.2px;
+        }
+
+        .add-btn {
+            background: var(--text);
+            color: #FBF7F0;
+            border: none;
+            border-radius: 999px;
+            padding: 7px 15px;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            font-size: 0.79rem;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .add-btn:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(180, 85, 45, 0.30);
+        }
+
+        .add-btn:active {
+            transform: translateY(0) scale(0.97);
+        }
+
+        .add-btn-group {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .add-btn-group .add-btn {
+            padding: 5px 11px;
+            font-size: 0.73rem;
+        }
+
+        .extra-note {
+            font-style: italic;
+            color: var(--text-soft);
+            font-size: 0.8rem;
+            margin-top: 14px;
+            padding: 10px 14px;
+            background: var(--bg-alt);
+            border-radius: 10px;
+            border-left: 3px solid var(--amber);
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            text-align: center;
+            padding: 44px 20px;
+            background: var(--text);
+            color: #CBBDB0;
+            font-size: 0.85rem;
+            margin-top: 50px;
+        }
+
+        .quality-quote {
+            color: var(--amber);
+            font-style: italic;
+            margin-bottom: 14px;
+            display: block;
+            font-family: 'Fraunces', serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        footer p {
+            line-height: 1.7;
+        }
+
+        /* ============ FLOATING CART ============ */
+        #floating-cart-btn {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background: var(--text);
+            color: #FBF7F0;
+            padding: 15px 26px;
+            border-radius: 999px;
+            box-shadow: 0 12px 30px rgba(43, 33, 27, 0.35);
+            font-weight: 800;
+            font-size: 0.92rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        #floating-cart-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(180, 85, 45, 0.40);
+        }
+
+        /* ============ MODALS ============ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(43, 33, 27, 0.55);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 16px;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 22px;
+            width: 100%;
+            max-width: 440px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            color: var(--text);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .modal-content h2 {
+            font-family: 'Fraunces', serif !important;
+            font-weight: 600 !important;
+            color: var(--text) !important;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: var(--bg-alt);
+            border: none;
+            color: var(--text-soft);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .close-modal:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+            gap: 10px;
+        }
+
+        .cart-controls {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .cart-controls button {
+            background: var(--bg-alt);
+            color: var(--text);
+            border: 1px solid var(--border-strong);
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.18s ease;
+        }
+
+        .cart-controls button:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .cart-total {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-top: 20px;
+            text-align: right;
+            color: var(--accent);
+            font-family: 'Fraunces', serif;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .form-group label .req {
+            color: var(--accent);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border-strong);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-control::placeholder {
+            color: #B3A597;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            background: #fff;
+            box-shadow: 0 0 0 4px var(--accent-tint);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--accent);
+            color: #FFF8F1;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 800;
+            font-family: inherit;
+            letter-spacing: 0.2px;
+            margin-top: 16px;
+            cursor: pointer;
+            transition: all 0.22s ease;
+            box-shadow: 0 8px 20px rgba(180, 85, 45, 0.25);
+        }
+
+        .checkout-btn:hover:not(:disabled) {
+            background: var(--accent-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(180, 85, 45, 0.35);
+        }
+
+        .min-order-notice {
+            background: rgba(216, 155, 74, 0.14);
+            border: 1px solid rgba(216, 155, 74, 0.40);
+            color: #8A5A16;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-top: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img alt="Baithack logo" class="logo-img" src="assets/baithack.png" onerror="handleLogoError(this)" />
+            <p class="tagline">TASTE OF KULHAD | BALEWADI</p>
+        </div>
+        <div class="outlet-info">
+            <p>📍 SHOP NO 14, C WING, GROUND FLOOR, GRAVITY COMMERCIAL COMPLEX, PATIL NAGAR, near Kool Homes Arena, SOCIETY, Balewadi, Pune, Maharashtra 411045</p>
+            <p>📞 +91 20 4528 2412 | +91 85271 91117</p>
+            <div class="info-pill"><span>🕒 Outlet Timings: 9 AM to 10:30 PM</span></div>
+            <div class="info-pill" style="margin-left: 6px;"><span>🛵 Min Order: ₹199</span></div>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input id="search-box" placeholder="Search for any item from the menu..." type="text" />
+    </div>
+
+    <nav class="filter-nav">
+        <button class="filter-btn active" data-cat="all">All Items</button>
+        <button class="filter-btn" data-cat="new">🔥 New Arrivals</button>
+        <button class="filter-btn" data-cat="chai">Chai & Coffee</button>
+        <button class="filter-btn" data-cat="tea">Green & Black Tea</button>
+        <button class="filter-btn" data-cat="icetea">Ice Tea & Bubble Tea</button>
+        <button class="filter-btn" data-cat="shakes">Shakes & Frappe</button>
+        <button class="filter-btn" data-cat="coolers">Coolers & Mocktails</button>
+        <button class="filter-btn" data-cat="breads">Breads & Buns</button>
+        <button class="filter-btn" data-cat="snacks">Fries & Hot Bites</button>
+        <button class="filter-btn" data-cat="burger">Burger, Panini & Wraps</button>
+        <button class="filter-btn" data-cat="mains">Pizza, Pasta & Maggie</button>
+        <button class="filter-btn" data-cat="sandwich">Sandwiches</button>
+        <button class="filter-btn" data-cat="momos">Momos & Noodles</button>
+        <button class="filter-btn" data-cat="bowls">Rice Bowls & Salads</button>
+        <button class="filter-btn" data-cat="dessert">Sizzling Brownies</button>
+    </nav>
+
+    <div class="container" id="menu-list">
+
+        <!-- NEW ARRIVALS -->
+        <section class="category-section" data-cat="new">
+            <h2 class="section-title">New Introductions <span class="new-badge">SPECIAL</span></h2>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥤</div><div class="menu-item-content"><div class="item-title-wrap"><span class="item-name">Kunafa Shake</span><span class="new-badge">NEW</span></div><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Kunafa Shake', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥤</div><div class="menu-item-content"><div class="item-title-wrap"><span class="item-name">Kunafa Chocolate Shake</span><span class="new-badge">NEW</span></div><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Kunafa Chocolate Shake', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥤</div><div class="menu-item-content"><div class="item-title-wrap"><span class="item-name">Bourbon Shake</span><span class="new-badge">NEW</span></div><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Bourbon Shake', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥤</div><div class="menu-item-content"><div class="item-title-wrap"><span class="item-name">Hide & Seek Shake</span><span class="new-badge">NEW</span></div><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Hide & Seek Shake', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥤</div><div class="menu-item-content"><div class="item-title-wrap"><span class="item-name">Jimjam Shake</span><span class="new-badge">NEW</span></div><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Jimjam Shake', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">☕</div><div class="menu-item-content"><div class="item-title-wrap"><span class="item-name">Tiramisu Cold Coffee</span><span class="new-badge">NEW</span></div><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Tiramisu Cold Coffee', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">☕</div><div class="menu-item-content"><div class="item-title-wrap"><span class="item-name">Tiramisu Frappe</span><span class="new-badge">NEW</span></div><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Tiramisu Frappe', 190)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- CHAI (KULHAD) -->
+        <section class="category-section" data-cat="chai">
+            <h2 class="section-title">Chai (Kulhad)</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Adrak Chai" class="menu-item-img" loading="lazy" src="assets2/ADRAK CHAI.webp" onerror="handleImgError(this, '🍵')" /><div class="menu-item-content"><span class="item-name">Adrak Chai</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Adrak Chai (S)', 20)">+ Small ₹20</button><button class="add-btn" onclick="addToCart('Adrak Chai (M)', 60)">+ Medium ₹60</button></div></div></div></div>
+                <div class="menu-item"><img alt="Elaichi Chai" class="menu-item-img" loading="lazy" src="assets2/ELAICHI CHAI.webp" onerror="handleImgError(this, '🍵')" /><div class="menu-item-content"><span class="item-name">Elaichi Chai</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Elaichi Chai (S)', 20)">+ Small ₹20</button><button class="add-btn" onclick="addToCart('Elaichi Chai (M)', 60)">+ Medium ₹60</button></div></div></div></div>
+                <div class="menu-item"><img alt="Masala Chai" class="menu-item-img" loading="lazy" src="assets2/MASALA CHAI.webp" onerror="handleImgError(this, '🍵')" /><div class="menu-item-content"><span class="item-name">Masala Chai</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Masala Chai (S)', 20)">+ Small ₹20</button><button class="add-btn" onclick="addToCart('Masala Chai (M)', 60)">+ Medium ₹60</button></div></div></div></div>
+                <div class="menu-item"><img alt="Chocolate Chai" class="menu-item-img" loading="lazy" src="assets2/CHOCOLATE CHAI.webp" onerror="handleImgError(this, '🍵')" /><div class="menu-item-content"><span class="item-name">Chocolate Chai</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Chocolate Chai (S)', 20)">+ Small ₹20</button><button class="add-btn" onclick="addToCart('Chocolate Chai (M)', 60)">+ Medium ₹60</button></div></div></div></div>
+                <div class="menu-item"><img alt="Pan Chai" class="menu-item-img" loading="lazy" src="assets2/PAN CHAI.webp" onerror="handleImgError(this, '🍵')" /><div class="menu-item-content"><span class="item-name">Pan Chai</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Pan Chai (S)', 20)">+ Small ₹20</button><button class="add-btn" onclick="addToCart('Pan Chai (M)', 60)">+ Medium ₹60</button></div></div></div></div>
+                <div class="menu-item"><img alt="Rose Chai" class="menu-item-img" loading="lazy" src="assets2/ROSE CHAI.webp" onerror="handleImgError(this, '🍵')" /><div class="menu-item-content"><span class="item-name">Rose Chai</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Rose Chai (S)', 20)">+ Small ₹20</button><button class="add-btn" onclick="addToCart('Rose Chai (M)', 60)">+ Medium ₹60</button></div></div></div></div>
+                <div class="menu-item"><img alt="Saffron Chai" class="menu-item-img" loading="lazy" src="assets2/SAFFRON CHAI.webp" onerror="handleImgError(this, '🍵')" /><div class="menu-item-content"><span class="item-name">Saffron Chai</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Saffron Chai (S)', 30)">+ Small ₹30</button><button class="add-btn" onclick="addToCart('Saffron Chai (M)', 80)">+ Medium ₹80</button></div></div></div></div>
+                <div class="menu-item"><img alt="Ukala" class="menu-item-img" loading="lazy" src="assets2/UKALA.webp" onerror="handleImgError(this, '🍵')" /><div class="menu-item-content"><span class="item-name">Ukala</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Ukala (S)', 20)">+ Small ₹20</button><button class="add-btn" onclick="addToCart('Ukala (M)', 80)">+ Medium ₹80</button></div></div></div></div>
+            </div>
+            <div class="extra-note">* Chai Without Sugar — Extra ₹10/-</div>
+        </section>
+
+        <!-- HOT COFFEE -->
+        <section class="category-section" data-cat="chai">
+            <h2 class="section-title">Hot Coffee</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Hot Coffee" class="menu-item-img" loading="lazy" src="assets2/HOT COFFEE.webp" onerror="handleImgError(this, '☕')" /><div class="menu-item-content"><span class="item-name">Hot Coffee</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Hot Coffee (S)', 25)">+ Small ₹25</button><button class="add-btn" onclick="addToCart('Hot Coffee (M)', 70)">+ Medium ₹70</button></div></div></div></div>
+                <div class="menu-item"><img alt="Strong Hot Coffee" class="menu-item-img" loading="lazy" src="assets2/STRONG HOT COFFEE.webp" onerror="handleImgError(this, '☕')" /><div class="menu-item-content"><span class="item-name">Strong Hot Coffee</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Strong Hot Coffee (S)', 30)">+ Small ₹30</button><button class="add-btn" onclick="addToCart('Strong Hot Coffee (M)', 80)">+ Medium ₹80</button></div></div></div></div>
+                <div class="menu-item"><img alt="Chocolate Hot Coffee" class="menu-item-img" loading="lazy" src="assets2/CHOCOLATE HOT COFFEE.webp" onerror="handleImgError(this, '☕')" /><div class="menu-item-content"><span class="item-name">Chocolate Hot Coffee</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Chocolate Hot Coffee (S)', 30)">+ Small ₹30</button><button class="add-btn" onclick="addToCart('Chocolate Hot Coffee (M)', 80)">+ Medium ₹80</button></div></div></div></div>
+                <div class="menu-item"><img alt="Strong Choco Coffee" class="menu-item-img" loading="lazy" src="assets2/STRONG CHOCOLATE HOT COFFEE.webp" onerror="handleImgError(this, '☕')" /><div class="menu-item-content"><span class="item-name">Strong Choco Coffee</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Strong Choco Coffee (S)', 40)">+ Small ₹40</button><button class="add-btn" onclick="addToCart('Strong Choco Coffee (M)', 100)">+ Medium ₹100</button></div></div></div></div>
+                <div class="menu-item"><img alt="Black Coffee" class="menu-item-img" loading="lazy" src="assets2/BLACK COFFEE.webp" onerror="handleImgError(this, '☕')" /><div class="menu-item-content"><span class="item-name">Black Coffee</span><div class="item-bottom"><span class="price">₹40</span><button class="add-btn" onclick="addToCart('Black Coffee', 40)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Caramel Coffee" class="menu-item-img" loading="lazy" src="assets2/CARAMEL HOT COFFEE.webp" onerror="handleImgError(this, '☕')" /><div class="menu-item-content"><span class="item-name">Caramel Coffee</span><div class="item-bottom"><span class="price">₹70</span><button class="add-btn" onclick="addToCart('Caramel Coffee', 70)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Irish Coffee" class="menu-item-img" loading="lazy" src="assets2/IRISH HOT COFFEE.webp" onerror="handleImgError(this, '☕')" /><div class="menu-item-content"><span class="item-name">Irish Coffee</span><div class="item-bottom"><span class="price">₹70</span><button class="add-btn" onclick="addToCart('Irish Coffee', 70)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Hazelnut Coffee" class="menu-item-img" loading="lazy" src="assets2/HAZELNUT HOT COFFEE.webp" onerror="handleImgError(this, '☕')" /><div class="menu-item-content"><span class="item-name">Hazelnut Coffee</span><div class="item-bottom"><span class="price">₹70</span><button class="add-btn" onclick="addToCart('Hazelnut Coffee', 70)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Hot Chocolate" class="menu-item-img" loading="lazy" src="assets2/HOT CHOCOLATE.webp" onerror="handleImgError(this, '☕')" /><div class="menu-item-content"><span class="item-name">Hot Chocolate</span><div class="item-bottom"><span class="price">₹70</span><button class="add-btn" onclick="addToCart('Hot Chocolate', 70)">+ Add</button></div></div></div>
+            </div>
+            <div class="extra-note">* Coffee Without Sugar — Extra ₹10/-</div>
+        </section>
+
+        <!-- COLD COFFEE -->
+        <section class="category-section" data-cat="chai">
+            <h2 class="section-title">Cold Coffee</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Cold Coffee" class="menu-item-img" loading="lazy" src="assets2/COLD COFFEE.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Cold Coffee</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Cold Coffee', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Chocolate Cold Coffee" class="menu-item-img" loading="lazy" src="assets2/CHOCOLATE COLD COFFEE.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Chocolate Cold Coffee</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Chocolate Cold Coffee', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Strong Cold Coffee" class="menu-item-img" loading="lazy" src="assets2/STRONG COLD COFFEE.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Strong Cold Coffee</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Strong Cold Coffee', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cold Coffee w Ice Cream" class="menu-item-img" loading="lazy" src="assets2/COLD COFFEE WITH ICE CREAM.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Cold Coffee 'w' Ice Cream</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Cold Coffee w Ice Cream', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Choco Cold Coffee w Ice Cream" class="menu-item-img" loading="lazy" src="assets2/CHOCOLATE COLD COFFEE WITH ICE CREAM.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Choco Cold Coffee 'w' Ice Cream</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Choco Cold Coffee w Ice Cream', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Brownie Cold Coffee" class="menu-item-img" loading="lazy" src="assets2/BROWNIE COLD COFFEE.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Brownie Cold Coffee</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Brownie Cold Coffee', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Brownie Cold Coffee w Ice Cream" class="menu-item-img" loading="lazy" src="assets2/BROWNIE COLD COFFEE WITH ICE CREAM.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Brownie Cold Coffee 'w' Ice Cream</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Brownie Cold Coffee w Ice Cream', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Caramel Cold Coffee" class="menu-item-img" loading="lazy" src="assets2/CARAMEL COLD COFFEE.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Caramel Cold Coffee</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Caramel Cold Coffee', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Irish Cold Coffee" class="menu-item-img" loading="lazy" src="assets2/IRISH COLD COFFEE.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Irish Cold Coffee</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Irish Cold Coffee', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Hazelnut Cold Coffee" class="menu-item-img" loading="lazy" src="assets2/HAZELNUT COLD COFFEE.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Hazelnut Cold Coffee</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Hazelnut Cold Coffee', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Baithack Spl. Cold Coffee" class="menu-item-img" loading="lazy" src="assets2/BAITHACK SPECIAL COLD COFFEE.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Baithack Spl. Cold Coffee</span><div class="item-bottom"><span class="price">₹210</span><button class="add-btn" onclick="addToCart('Baithack Spl Cold Coffee', 210)">+ Add</button></div></div></div>
+            </div>
+            <div class="extra-note">* Cold Coffee Without Sugar — Extra ₹10/-</div>
+        </section>
+
+        <!-- GREEN & BLACK TEA -->
+        <section class="category-section" data-cat="tea">
+            <h2 class="section-title">Green & Black Tea</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Tulsi Ginger" class="menu-item-img" loading="lazy" src="assets2/TULSI GINGER GREEN TEA.webp" onerror="handleImgError(this, '🫖')" /><div class="menu-item-content"><span class="item-name">Tulsi Ginger Green Tea</span><div class="item-bottom"><span class="price">₹70</span><button class="add-btn" onclick="addToCart('Tulsi Ginger Green Tea', 70)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Strawberry Hibiscus" class="menu-item-img" loading="lazy" src="assets2/STRAWBERRY HIBISCUS GREEN TEA.webp" onerror="handleImgError(this, '🫖')" /><div class="menu-item-content"><span class="item-name">Strawberry Hibiscus</span><div class="item-bottom"><span class="price">₹70</span><button class="add-btn" onclick="addToCart('Strawberry Hibiscus', 70)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Kashmiri Kahwa" class="menu-item-img" loading="lazy" src="assets2/KASHMIRI KAWA.webp" onerror="handleImgError(this, '🫖')" /><div class="menu-item-content"><span class="item-name">Kashmiri Kahwa</span><div class="item-bottom"><span class="price">₹70</span><button class="add-btn" onclick="addToCart('Kashmiri Kahwa', 70)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Butterfly Pea" class="menu-item-img" loading="lazy" src="assets2/BUTTERFLY PEA GREEN TEA.webp" onerror="handleImgError(this, '🫖')" /><div class="menu-item-content"><span class="item-name">Butterfly Pea</span><div class="item-bottom"><span class="price">₹80</span><button class="add-btn" onclick="addToCart('Butterfly Pea', 80)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Black Tea" class="menu-item-img" loading="lazy" src="assets2/BLACK TEA.webp" onerror="handleImgError(this, '🫖')" /><div class="menu-item-content"><span class="item-name">Black Tea</span><div class="item-bottom"><span class="price">₹30</span><button class="add-btn" onclick="addToCart('Black Tea', 30)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Lemon Black Tea" class="menu-item-img" loading="lazy" src="assets2/LEMON BLACK TEA.webp" onerror="handleImgError(this, '🫖')" /><div class="menu-item-content"><span class="item-name">Lemon Black Tea</span><div class="item-bottom"><span class="price">₹40</span><button class="add-btn" onclick="addToCart('Lemon Black Tea', 40)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Special Black Tea" class="menu-item-img" loading="lazy" src="assets2/SPECIAL BLACK TEA.webp" onerror="handleImgError(this, '🫖')" /><div class="menu-item-content"><span class="item-name">Special Black Tea</span><div class="item-bottom"><span class="price">₹50</span><button class="add-btn" onclick="addToCart('Special Black Tea', 50)">+ Add</button></div></div></div>
+            </div>
+            <div class="extra-note">* Tea With Honey — Extra ₹15/-</div>
+        </section>
+
+        <!-- ICE TEA & BUBBLE TEA -->
+        <section class="category-section" data-cat="icetea">
+            <h2 class="section-title">Ice Tea & Bubble Tea</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Lemon Ice Tea" class="menu-item-img" loading="lazy" src="assets2/LEMON ICE TEA.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Lemon Ice Tea</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Lemon Ice Tea', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Classic Ice Tea</span><div class="item-bottom"><span class="price">₹150</span><button class="add-btn" onclick="addToCart('Classic Ice Tea', 150)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Peach Ice Tea" class="menu-item-img" loading="lazy" src="assets2/PEACH ICE TEA.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Peach Ice Tea</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Peach Ice Tea', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Mixberry Ice Tea" class="menu-item-img" loading="lazy" src="assets2/MIXBERRY ICE TEA.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Mixberry Ice Tea</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Mixberry Ice Tea', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Lychee Ice Tea" class="menu-item-img" loading="lazy" src="assets2/LYCHEE ICE TEA.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Lychee Ice Tea</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Lychee Ice Tea', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Green Apple Ice Tea" class="menu-item-img" loading="lazy" src="assets2/GREEN APPLE ICE TEA.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Green Apple Ice Tea</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Green Apple Ice Tea', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Watermelon Ice Tea" class="menu-item-img" loading="lazy" src="assets2/WATERMELON ICE TEA.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Watermelon Ice Tea</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Watermelon Ice Tea', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Green Apple Bubble Tea" class="menu-item-img" loading="lazy" src="assets2/GREEN APPLE BUBBLE TEA.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Green Apple Bubble Tea</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Green Apple Bubble Tea', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Peach Bubble Tea" class="menu-item-img" loading="lazy" src="assets2/PEACH BUBBLE TEA.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Peach Bubble Tea</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Peach Bubble Tea', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Lychee Bubble Tea" class="menu-item-img" loading="lazy" src="assets2/LYCHEE BUBBLE TEA.webp" onerror="handleImgError(this, '🧋')" /><div class="menu-item-content"><span class="item-name">Lychee Bubble Tea</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Lychee Bubble Tea', 190)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- SHAKES & FRAPPE -->
+        <section class="category-section" data-cat="shakes">
+            <h2 class="section-title">Thick Shakes & Frappe</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Oreo Shake" class="menu-item-img" loading="lazy" src="assets2/OREO SHAKE 1.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Oreo Shake</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Oreo Shake', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cadbury Shake" class="menu-item-img" loading="lazy" src="assets2/CADBURY SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Cadbury Shake</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Cadbury Shake', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Kitkat Shake" class="menu-item-img" loading="lazy" src="assets2/KITKAT SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Kitkat Shake</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Kitkat Shake', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Brownie Shake" class="menu-item-img" loading="lazy" src="assets2/BROWNIE SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Brownie Shake</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Brownie Shake', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Vanilla Shake" class="menu-item-img" loading="lazy" src="assets2/VANILA THICK SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Vanilla Thick Shake</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Vanilla Thick Shake', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Mango Shake" class="menu-item-img" loading="lazy" src="assets2/MANGO THICK SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Mango Thick Shake</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Mango Thick Shake', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Strawberry Shake" class="menu-item-img" loading="lazy" src="assets2/STRAWBERRY THICK SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Strawberry Thick Shake</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Strawberry Thick Shake', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Butterscotch Shake" class="menu-item-img" loading="lazy" src="assets2/BUTTERSCOCH THICK SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Butterscotch Thick Shake</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Butterscotch Thick Shake', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Black Currant Shake" class="menu-item-img" loading="lazy" src="assets2/BLACK CURRANT THICK SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Black Currant Thick Shake</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Black Currant Thick Shake', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Exotic Chocolate Shake" class="menu-item-img" loading="lazy" src="assets2/EXOTIC CHOCOLATE THICK SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Exotic Chocolate Shake</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Exotic Chocolate Shake', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Nutella Shake" class="menu-item-img" loading="lazy" src="assets2/NUTELLA SHAKE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Nutella Shake</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Nutella Shake', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Hazelnut Frappe" class="menu-item-img" loading="lazy" src="assets2/HAZELNUT FRAPPE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Hazelnut Frappe</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Hazelnut Frappe', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Irish Frappe" class="menu-item-img" loading="lazy" src="assets2/IRISH FRAPPE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Irish Frappe</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Irish Frappe', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Caramel Frappe" class="menu-item-img" loading="lazy" src="assets2/CARAMEL FRAPPE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Caramel Frappe</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Caramel Frappe', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Mixberry Frappe" class="menu-item-img" loading="lazy" src="assets2/MIXBERRY FRAPPE 1.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Mixberry Frappe</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Mixberry Frappe', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Blueberry Frappe" class="menu-item-img" loading="lazy" src="assets2/BLUEBERRY FRAPPE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Blueberry Frappe</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Blueberry Frappe', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Strawberry Oreo Frappe" class="menu-item-img" loading="lazy" src="assets2/STRAWBERRY OREO FRAPPE.webp" onerror="handleImgError(this, '🥤')" /><div class="menu-item-content"><span class="item-name">Strawberry Oreo Frappe</span><div class="item-bottom"><span class="price">₹210</span><button class="add-btn" onclick="addToCart('Strawberry Oreo Frappe', 210)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- COOLERS & MOCKTAILS -->
+        <section class="category-section" data-cat="coolers">
+            <h2 class="section-title">Coolers & Mocktails</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Virgin Mojito" class="menu-item-img" loading="lazy" src="assets2/VIRGIN MOJITO.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Virgin Mojito</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Virgin Mojito', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Lychee Cooler" class="menu-item-img" loading="lazy" src="assets2/LYCHEE COOLER.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Lychee Cooler</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Lychee Cooler', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Blue Moon" class="menu-item-img" loading="lazy" src="assets2/BLUE MOON COOLER 1.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Blue Moon Cooler</span><div class="item-bottom"><span class="price">₹150</span><button class="add-btn" onclick="addToCart('Blue Moon Cooler', 150)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cranberry Cooler" class="menu-item-img" loading="lazy" src="assets2/CRANBERRY COOLER.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Cranberry Cooler</span><div class="item-bottom"><span class="price">₹150</span><button class="add-btn" onclick="addToCart('Cranberry Cooler', 150)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Tamari Spice</span><div class="item-bottom"><span class="price">₹150</span><button class="add-btn" onclick="addToCart('Tamari Spice', 150)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Melon Mint</span><div class="item-bottom"><span class="price">₹150</span><button class="add-btn" onclick="addToCart('Melon Mint', 150)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Green Apple" class="menu-item-img" loading="lazy" src="assets2/GREEN APPLE COOLER.webp" onerror="handleImgError(this, '🍹')" /><div class="menu-item-content"><span class="item-name">Green Apple Cooler</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Green Apple Cooler', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Watermelon Cooler</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Watermelon Cooler', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Chilli Guava</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Chilli Guava', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Blue Blossom</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Blue Blossom', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Spicy Mango</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Spicy Mango', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Yuzu Mojito</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Yuzu Mojito', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Yuzu Spicy Cooler</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Yuzu Spicy Cooler', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Orange Cooler</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Orange Cooler', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Mosambi Cooler</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Mosambi Cooler', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍹</div><div class="menu-item-content"><span class="item-name">Lychee Pomegranate</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Lychee Pomegranate', 160)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- BREADS & BUNS -->
+        <section class="category-section" data-cat="breads">
+            <h2 class="section-title">Breads & Buns</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Bun Maska" class="menu-item-img" loading="lazy" src="assets2/BUN MUSKA.webp" onerror="handleImgError(this, '🍞')" /><div class="menu-item-content"><span class="item-name">Bun Maska</span><div class="item-bottom"><span class="price">₹30</span><button class="add-btn" onclick="addToCart('Bun Maska', 30)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Bun Maska Jam" class="menu-item-img" loading="lazy" src="assets2/BUN MUSKA JAM.webp" onerror="handleImgError(this, '🍞')" /><div class="menu-item-content"><span class="item-name">Bun Maska Jam</span><div class="item-bottom"><span class="price">₹40</span><button class="add-btn" onclick="addToCart('Bun Maska Jam', 40)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Garlic Bun Maska" class="menu-item-img" loading="lazy" src="assets2/GARLIC BUN MUSKA.webp" onerror="handleImgError(this, '🍞')" /><div class="menu-item-content"><span class="item-name">Garlic Bun Maska</span><div class="item-bottom"><span class="price">₹50</span><button class="add-btn" onclick="addToCart('Garlic Bun Maska', 50)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Bread Butter Toast/Jam" class="menu-item-img" loading="lazy" src="assets2/BREAD BUTTER TOAST.webp" onerror="handleImgError(this, '🍞')" /><div class="menu-item-content"><span class="item-name">Bread Butter Toast/Jam</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Bread Butter Toast', 50)">+ Butter ₹50</button><button class="add-btn" onclick="addToCart('Bread Jam Toast', 60)">+ Jam ₹60</button></div></div></div></div>
+                <div class="menu-item"><img alt="Bun Maska Jam Cheese" class="menu-item-img" loading="lazy" src="assets2/BUN MUSKA JAM CHEESE.webp" onerror="handleImgError(this, '🍞')" /><div class="menu-item-content"><span class="item-name">Bun Maska Jam Cheese</span><div class="item-bottom"><span class="price">₹80</span><button class="add-btn" onclick="addToCart('Bun Maska Jam Cheese', 80)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Garlic Bread" class="menu-item-img" loading="lazy" src="assets2/GARLIC BREAD.webp" onerror="handleImgError(this, '🥖')" /><div class="menu-item-content"><span class="item-name">Garlic Bread</span><div class="item-bottom"><span class="price">₹80</span><button class="add-btn" onclick="addToCart('Garlic Bread', 80)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheese Garlic Bread" class="menu-item-img" loading="lazy" src="assets2/CHEESE GARLIC BREAD.webp" onerror="handleImgError(this, '🥖')" /><div class="menu-item-content"><span class="item-name">Cheese Garlic Bread</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Cheese Garlic Bread', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheese Chilli Toast" class="menu-item-img" loading="lazy" src="assets2/CHEESE CHILLI TOAST .webp" onerror="handleImgError(this, '🍞')" /><div class="menu-item-content"><span class="item-name">Cheese Chilli Toast</span><div class="item-bottom"><span class="price">₹150</span><button class="add-btn" onclick="addToCart('Cheese Chilli Toast', 150)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheese Burst Garlic Bread" class="menu-item-img" loading="lazy" src="assets2/CHEESE BURST GARLIC BREAD.webp" onerror="handleImgError(this, '🥖')" /><div class="menu-item-content"><span class="item-name">Cheese Burst Garlic Bread</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Cheese Burst Garlic Bread', 160)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- FRIES & HOT BITES -->
+        <section class="category-section" data-cat="snacks">
+            <h2 class="section-title">Fries & Hot Bites</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Salted Fries" class="menu-item-img" loading="lazy" src="assets2/SALTED FRENCH FRIES.webp" onerror="handleImgError(this, '🍟')" /><div class="menu-item-content"><span class="item-name">Salted Fries</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Salted Fries', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Masala Fries" class="menu-item-img" loading="lazy" src="assets2/MASALA FRIES.webp" onerror="handleImgError(this, '🍟')" /><div class="menu-item-content"><span class="item-name">Masala Fries</span><div class="item-bottom"><span class="price">₹150</span><button class="add-btn" onclick="addToCart('Masala Fries', 150)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Peri Peri Fries" class="menu-item-img" loading="lazy" src="assets2/PERI PERI FRIES.webp" onerror="handleImgError(this, '🍟')" /><div class="menu-item-content"><span class="item-name">Peri Peri Fries</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Peri Peri Fries', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Loaded Fries" class="menu-item-img" loading="lazy" src="assets2/LOADED FRIES.webp" onerror="handleImgError(this, '🍟')" /><div class="menu-item-content"><span class="item-name">Loaded Fries</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Loaded Fries', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Peri Peri Loaded Fries" class="menu-item-img" loading="lazy" src="assets2/PERI PERI LOADED FRIES.webp" onerror="handleImgError(this, '🍟')" /><div class="menu-item-content"><span class="item-name">Peri Peri Loaded Fries</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Peri Peri Loaded Fries', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍟</div><div class="menu-item-content"><span class="item-name">Pizza Fries</span><div class="item-bottom"><span class="price">₹210</span><button class="add-btn" onclick="addToCart('Pizza Fries', 210)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Ring Onion" class="menu-item-img" loading="lazy" src="assets2/RING ONION.webp" onerror="handleImgError(this, '🧅')" /><div class="menu-item-content"><span class="item-name">Ring Onion</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Ring Onion', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Punjabi Samosa" class="menu-item-img" loading="lazy" src="assets2/PUNJABI SAMOSA.webp" onerror="handleImgError(this, '🥟')" /><div class="menu-item-content"><span class="item-name">Punjabi Samosa</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Punjabi Samosa', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Garlic Shots" class="menu-item-img" loading="lazy" src="assets2/GARLIC SHOT.webp" onerror="handleImgError(this, '🧄')" /><div class="menu-item-content"><span class="item-name">Garlic Shots</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Garlic Shots', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Pizza Pocket" class="menu-item-img" loading="lazy" src="assets2/PIZZA POCKET.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Pizza Pocket (Mini Puff)</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Pizza Pocket', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Veggie Nuggets" class="menu-item-img" loading="lazy" src="assets2/VEGGIE_S NUGGET.webp" onerror="handleImgError(this, '🧆')" /><div class="menu-item-content"><span class="item-name">Veggie Nuggets</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Veggie Nuggets', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Potato Wedges" class="menu-item-img" loading="lazy" src="assets2/POTATO WEDGES.webp" onerror="handleImgError(this, '🥔')" /><div class="menu-item-content"><span class="item-name">Potato Wedges</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Potato Wedges', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheese Shots" class="menu-item-img" loading="lazy" src="assets2/CHEESE SHOTS.webp" onerror="handleImgError(this, '🧀')" /><div class="menu-item-content"><span class="item-name">Cheese Shots</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Cheese Shots', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheesy Corn Triangle" class="menu-item-img" loading="lazy" src="assets2/CHEESE CORN TRINGLES.webp" onerror="handleImgError(this, '🧀')" /><div class="menu-item-content"><span class="item-name">Cheesy Corn Triangle</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Cheesy Corn Triangle', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheesy Pizza Fingers" class="menu-item-img" loading="lazy" src="assets2/CHEESY PIZZA FINGERS.webp" onerror="handleImgError(this, '🧀')" /><div class="menu-item-content"><span class="item-name">Cheesy Pizza Fingers</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Cheesy Pizza Fingers', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheese Jalapeno Poppers" class="menu-item-img" loading="lazy" src="assets2/CHEESE JALAPENO POPPERS.webp" onerror="handleImgError(this, '🫑')" /><div class="menu-item-content"><span class="item-name">Cheese Jalapeno Poppers</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Cheese Jalapeno Poppers', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Chilli Potato Wedges" class="menu-item-img" loading="lazy" src="assets2/CHILLI WEDGES.webp" onerror="handleImgError(this, '🥔')" /><div class="menu-item-content"><span class="item-name">Chilli Potato Wedges</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Chilli Potato Wedges', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Chilli Fries" class="menu-item-img" loading="lazy" src="assets2/CHILLI FRIES.webp" onerror="handleImgError(this, '🍟')" /><div class="menu-item-content"><span class="item-name">Chilli Fries</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Chilli Fries', 180)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- BURGER, PANINI & WRAPS -->
+        <section class="category-section" data-cat="burger">
+            <h2 class="section-title">Burgers, Paninis & Wraps</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Veg Burger" class="menu-item-img" loading="lazy" src="assets2/VEG BURGER.webp" onerror="handleImgError(this, '🍔')" /><div class="menu-item-content"><span class="item-name">Veg. Burger</span><div class="item-bottom"><span class="price">₹110</span><button class="add-btn" onclick="addToCart('Veg Burger', 110)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Schezwan Burger" class="menu-item-img" loading="lazy" src="assets2/SCHEZWAN BURGER.webp" onerror="handleImgError(this, '🍔')" /><div class="menu-item-content"><span class="item-name">Schezwan Burger</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Schezwan Burger', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Veg Cheese Burger" class="menu-item-img" loading="lazy" src="assets2/VEG CHEESE BURGER.webp" onerror="handleImgError(this, '🍔')" /><div class="menu-item-content"><span class="item-name">Veg. Cheese Burger</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Veg Cheese Burger', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Korean Burger" class="menu-item-img" loading="lazy" src="assets2/Korean Burger.webp" onerror="handleImgError(this, '🍔')" /><div class="menu-item-content"><span class="item-name">Korean Burger</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Korean Burger', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Paneer Burger" class="menu-item-img" loading="lazy" src="assets2/PANEER BURGER.webp" onerror="handleImgError(this, '🍔')" /><div class="menu-item-content"><span class="item-name">Paneer Burger</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Paneer Burger', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Coleslaw Panini" class="menu-item-img" loading="lazy" src="assets2/COLESLAW PANINI.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Coleslaw Panini</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Coleslaw Panini', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Veg Panini" class="menu-item-img" loading="lazy" src="assets2/VEG PANINI.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Veg Panini</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Veg Panini', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Paneer Tandoori Panini" class="menu-item-img" loading="lazy" src="assets2/TANDOOR PANINI.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Paneer Tandoori Panini</span><div class="item-bottom"><span class="price">₹210</span><button class="add-btn" onclick="addToCart('Paneer Tandoori Panini', 210)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Paneer Tikka Panini" class="menu-item-img" loading="lazy" src="assets2/PANEER TIKKA PANINI.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Paneer Tikka Panini</span><div class="item-bottom"><span class="price">₹210</span><button class="add-btn" onclick="addToCart('Paneer Tikka Panini', 210)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Falafel Wrap" class="menu-item-img" loading="lazy" src="assets2/FALAFAL WRAP.webp" onerror="handleImgError(this, '🌯')" /><div class="menu-item-content"><span class="item-name">Falafel Wrap</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Falafel Wrap', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Paneer Tikka Wrap" class="menu-item-img" loading="lazy" src="assets2/PANEER TIKKA WRAP.webp" onerror="handleImgError(this, '🌯')" /><div class="menu-item-content"><span class="item-name">Paneer Tikka Wrap</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Paneer Tikka Wrap', 190)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- PIZZA, PASTA & MAGGIE -->
+        <section class="category-section" data-cat="mains">
+            <h2 class="section-title">Pizza, Pasta & Maggie</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Onion Pizza" class="menu-item-img" loading="lazy" src="assets2/ONION PIZZA.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Onion Pizza</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Onion Pizza', 140)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Corn Pizza" class="menu-item-img" loading="lazy" src="assets2/CORN PIZZA.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Corn Pizza</span><div class="item-bottom"><span class="price">₹150</span><button class="add-btn" onclick="addToCart('Corn Pizza', 150)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Corn & Onion Pizza" class="menu-item-img" loading="lazy" src="assets2/CORN ONION PIZZA.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Corn & Onion Pizza</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Corn & Onion Pizza', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Veggies Pizza" class="menu-item-img" loading="lazy" src="assets2/VEGGIES PIZZA.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Veggies Pizza</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Veggies Pizza', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Double Cheese Pizza" class="menu-item-img" loading="lazy" src="assets2/DOUBLE CHEESE PIZZA.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Double Cheese Pizza</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Double Cheese Pizza', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Paneer Makhani Pizza" class="menu-item-img" loading="lazy" src="assets2/PANEER MAKHANI PIZZA.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Paneer Makhani Pizza</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Paneer Makhani Pizza', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Olive Baby Corn Pizza" class="menu-item-img" loading="lazy" src="assets2/OLIVE BABYCORN PIZZA.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Olive Baby Corn Pizza</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Olive Baby Corn Pizza', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheese Burst Pizza" class="menu-item-img" loading="lazy" src="assets2/CHEESE BURST PIZZA.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Cheese Burst Pizza</span><div class="item-bottom"><span class="price">₹210</span><button class="add-btn" onclick="addToCart('Cheese Burst Pizza', 210)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Baithack Spl. Pizza" class="menu-item-img" loading="lazy" src="assets2/BAITHACK SPECIAL PIZZA.webp" onerror="handleImgError(this, '🍕')" /><div class="menu-item-content"><span class="item-name">Baithack Spl. Pizza</span><div class="item-bottom"><span class="price">₹230</span><button class="add-btn" onclick="addToCart('Baithack Spl Pizza', 230)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍕</div><div class="menu-item-content"><span class="item-name">Burger Cheese Pizza</span><div class="item-bottom"><span class="price">₹350</span><button class="add-btn" onclick="addToCart('Burger Cheese Pizza', 350)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍕</div><div class="menu-item-content"><span class="item-name">Pasta Cheese Pizza</span><div class="item-bottom"><span class="price">₹300</span><button class="add-btn" onclick="addToCart('Pasta Cheese Pizza', 300)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍝</div><div class="menu-item-content"><span class="item-name">Bake Cheese Pasta</span><div class="item-bottom"><span class="price">₹250</span><button class="add-btn" onclick="addToCart('Bake Cheese Pasta', 250)">+ Add</button></div></div></div>
+
+                <div class="menu-item"><img alt="Aglio Olio in Penne" class="menu-item-img" loading="lazy" src="assets2/AGLIO OILO IN PENNE.webp" onerror="handleImgError(this, '🍝')" /><div class="menu-item-content"><span class="item-name">Aglio Olio in Penne</span><div class="item-bottom"><span class="price">₹170</span><button class="add-btn" onclick="addToCart('Aglio Olio in Penne', 170)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Red Sauce Pasta" class="menu-item-img" loading="lazy" src="assets2/RED SAUCE PASTA.webp" onerror="handleImgError(this, '🍝')" /><div class="menu-item-content"><span class="item-name">Red Sauce Pasta</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Red Sauce Pasta', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Schezwan Sauce Pasta" class="menu-item-img" loading="lazy" src="assets2/SCHEZWAN PASTA.webp" onerror="handleImgError(this, '🍝')" /><div class="menu-item-content"><span class="item-name">Schezwan Sauce Pasta</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('Schezwan Sauce Pasta', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="White Sauce Pasta" class="menu-item-img" loading="lazy" src="assets2/WHITE SAUCE PASTA 1.webp" onerror="handleImgError(this, '🍝')" /><div class="menu-item-content"><span class="item-name">White Sauce Pasta</span><div class="item-bottom"><span class="price">₹190</span><button class="add-btn" onclick="addToCart('White Sauce Pasta', 190)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Pink Sauce Pasta" class="menu-item-img" loading="lazy" src="assets2/PINK SAUCE PASTA.webp" onerror="handleImgError(this, '🍝')" /><div class="menu-item-content"><span class="item-name">Pink Sauce Pasta</span><div class="item-bottom"><span class="price">₹210</span><button class="add-btn" onclick="addToCart('Pink Sauce Pasta', 210)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Peri Peri Fries Pasta" class="menu-item-img" loading="lazy" src="assets2/PERI PERI FRIES PASTA.webp" onerror="handleImgError(this, '🍝')" /><div class="menu-item-content"><span class="item-name">Peri Peri Fries Pasta</span><div class="item-bottom"><span class="price">₹220</span><button class="add-btn" onclick="addToCart('Peri Peri Fries Pasta', 220)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍝</div><div class="menu-item-content"><span class="item-name">Creamy Mushroom Pasta</span><div class="item-bottom"><span class="price">₹230</span><button class="add-btn" onclick="addToCart('Creamy Mushroom Pasta', 230)">+ Add</button></div></div></div>
+
+                <div class="menu-item"><img alt="Plain Maggie" class="menu-item-img" loading="lazy" src="assets2/PLAIN MAGGIE.webp" onerror="handleImgError(this, '🍜')" /><div class="menu-item-content"><span class="item-name">Plain Maggie</span><div class="item-bottom"><span class="price">₹60</span><button class="add-btn" onclick="addToCart('Plain Maggie', 60)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Masala Maggie" class="menu-item-img" loading="lazy" src="assets2/MASALA MAGGIE.webp" onerror="handleImgError(this, '🍜')" /><div class="menu-item-content"><span class="item-name">Masala Maggie</span><div class="item-bottom"><span class="price">₹70</span><button class="add-btn" onclick="addToCart('Masala Maggie', 70)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Veg Masala Maggie" class="menu-item-img" loading="lazy" src="assets2/VEG MASALA MAGGIE.webp" onerror="handleImgError(this, '🍜')" /><div class="menu-item-content"><span class="item-name">Veg. Masala Maggie</span><div class="item-bottom"><span class="price">₹110</span><button class="add-btn" onclick="addToCart('Veg Masala Maggie', 110)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Schezwan Maggie" class="menu-item-img" loading="lazy" src="assets2/SCHEZWAN MAGGIE.webp" onerror="handleImgError(this, '🍜')" /><div class="menu-item-content"><span class="item-name">Schezwan Maggie</span><div class="item-bottom"><span class="price">₹110</span><button class="add-btn" onclick="addToCart('Schezwan Maggie', 110)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheese Butter Maggie" class="menu-item-img" loading="lazy" src="assets2/CHEESE N_ BUTTER MAGGIE.webp" onerror="handleImgError(this, '🍜')" /><div class="menu-item-content"><span class="item-name">Cheese Butter Maggie</span><div class="item-bottom"><span class="price">₹120</span><button class="add-btn" onclick="addToCart('Cheese Butter Maggie', 120)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Punjabi Tadka Maggie" class="menu-item-img" loading="lazy" src="assets2/PUNJABI TADKA MAGGIE.webp" onerror="handleImgError(this, '🍜')" /><div class="menu-item-content"><span class="item-name">Punjabi Tadka Maggie</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Punjabi Tadka Maggie', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Peri Peri Maggie" class="menu-item-img" loading="lazy" src="assets2/PERI PERI MAGGIE 1.webp" onerror="handleImgError(this, '🍜')" /><div class="menu-item-content"><span class="item-name">Peri Peri Maggie</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Peri Peri Maggie', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Tandoori Tadka Maggie" class="menu-item-img" loading="lazy" src="assets2/TANDOORI TADKA MAGGIE.webp" onerror="handleImgError(this, '🍜')" /><div class="menu-item-content"><span class="item-name">Tandoori Tadka Maggie</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Tandoori Tadka Maggie', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Baithack Spl Maggie" class="menu-item-img" loading="lazy" src="assets2/BAITHACK SPECIAL MAGGIE.webp" onerror="handleImgError(this, '🍜')" /><div class="menu-item-content"><span class="item-name">Baithack Spl. Maggie</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Baithack Spl Maggie', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍜</div><div class="menu-item-content"><span class="item-name">Chilli Coriander Maggie</span><div class="item-bottom"><span class="price">₹120</span><button class="add-btn" onclick="addToCart('Chilli Coriander Maggie', 120)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍜</div><div class="menu-item-content"><span class="item-name">Peri Peri Cheese Maggie</span><div class="item-bottom"><span class="price">₹140</span><button class="add-btn" onclick="addToCart('Peri Peri Cheese Maggie', 140)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- SANDWICHES -->
+        <section class="category-section" data-cat="sandwich">
+            <h2 class="section-title">Sandwiches</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Veg Mayo" class="menu-item-img" loading="lazy" src="assets2/VEG MAYO SANDWICH.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Veg. Mayo Sandwich</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Veg Mayo (Veg)', 110)">+ Veg ₹110</button><button class="add-btn" onclick="addToCart('Veg Mayo (Cheese)', 140)">+ Cheese ₹140</button></div></div></div></div>
+                <div class="menu-item"><img alt="Grill Veggies" class="menu-item-img" loading="lazy" src="assets2/GRILLED VEGGIES SANDWICH.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Grill Veggies Sandwich</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Grill Veggies (Veg)', 110)">+ Veg ₹110</button><button class="add-btn" onclick="addToCart('Grill Veggies (Cheese)', 140)">+ Cheese ₹140</button></div></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥪</div><div class="menu-item-content"><span class="item-name">Chilli Chatakdar Sandwich</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Chilli Chatakdar (Veg)', 110)">+ Veg ₹110</button><button class="add-btn" onclick="addToCart('Chilli Chatakdar (Cheese)', 150)">+ Cheese ₹150</button></div></div></div></div>
+                <div class="menu-item"><img alt="Thousand Island" class="menu-item-img" loading="lazy" src="assets2/THOUSAND ISLAND SANDWICH.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Thousand Island Sandwich</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Thousand Island (Veg)', 120)">+ Veg ₹120</button><button class="add-btn" onclick="addToCart('Thousand Island (Cheese)', 150)">+ Cheese ₹150</button></div></div></div></div>
+                <div class="menu-item"><img alt="Corn Mayo" class="menu-item-img" loading="lazy" src="assets2/CORN MAYO SANDWICH.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Corn Mayo Sandwich</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Corn Mayo (Veg)', 120)">+ Veg ₹120</button><button class="add-btn" onclick="addToCart('Corn Mayo (Cheese)', 160)">+ Cheese ₹160</button></div></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥪</div><div class="menu-item-content"><span class="item-name">Paneer Majedar Sandwich</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Paneer Majedar (Veg)', 130)">+ Veg ₹130</button><button class="add-btn" onclick="addToCart('Paneer Majedar (Cheese)', 180)">+ Cheese ₹180</button></div></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥪</div><div class="menu-item-content"><span class="item-name">Tandoori Tadka Sandwich</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Tandoori Tadka (Veg)', 130)">+ Veg ₹130</button><button class="add-btn" onclick="addToCart('Tandoori Tadka (Cheese)', 160)">+ Cheese ₹160</button></div></div></div></div>
+                <div class="menu-item"><img alt="Paneer Kadai" class="menu-item-img" loading="lazy" src="assets2/PANEER KADAI SANDWICH.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Paneer Kadai Sandwich</span><div class="item-bottom"><div class="add-btn-group"><button class="add-btn" onclick="addToCart('Paneer Kadai (Veg)', 140)">+ Veg ₹140</button><button class="add-btn" onclick="addToCart('Paneer Kadai (Cheese)', 170)">+ Cheese ₹170</button></div></div></div></div>
+                <div class="menu-item"><img alt="Chocolate Sandwich" class="menu-item-img" loading="lazy" src="assets2/CHOCOLATE SANDWICH.webp" onerror="handleImgError(this, '🥪')" /><div class="menu-item-content"><span class="item-name">Chocolate Sandwich</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Chocolate Sandwich', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥪</div><div class="menu-item-content"><span class="item-name">Melting Cheese Sandwich</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Melting Cheese Sandwich', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥪</div><div class="menu-item-content"><span class="item-name">Volcano Cheese Sandwich</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Volcano Cheese Sandwich', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥪</div><div class="menu-item-content"><span class="item-name">Open Cheese Sandwich</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Open Cheese Sandwich', 180)">+ Add</button></div></div></div>
+            </div>
+            <div class="extra-note">* Any Sandwich in Brown Bread — Extra ₹30/-</div>
+        </section>
+
+        <!-- MOMOS & NOODLES -->
+        <section class="category-section" data-cat="momos">
+            <h2 class="section-title">Momos & Noodles</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Veg Momos" class="menu-item-img" loading="lazy" src="assets2/VEG MOMOS.webp" onerror="handleImgError(this, '🥟')" /><div class="menu-item-content"><span class="item-name">Veg Momos</span><div class="item-bottom"><span class="price">₹130</span><button class="add-btn" onclick="addToCart('Veg Momos', 130)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Paneer Momos" class="menu-item-img" loading="lazy" src="assets2/PANEER MOMOS.webp" onerror="handleImgError(this, '🥟')" /><div class="menu-item-content"><span class="item-name">Paneer Momos</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Paneer Momos', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥟</div><div class="menu-item-content"><span class="item-name">Corn Cheese Momos</span><div class="item-bottom"><span class="price">₹160</span><button class="add-btn" onclick="addToCart('Corn Cheese Momos', 160)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥟</div><div class="menu-item-content"><span class="item-name">Veg Kurkure Momo (6Pc)</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Veg Kurkure Momo', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥟</div><div class="menu-item-content"><span class="item-name">Paneer Kurkure Momo (6Pc)</span><div class="item-bottom"><span class="price">₹220</span><button class="add-btn" onclick="addToCart('Paneer Kurkure Momo', 220)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥟</div><div class="menu-item-content"><span class="item-name">Cheese Corn Kurkure Momo</span><div class="item-bottom"><span class="price">₹240</span><button class="add-btn" onclick="addToCart('Cheese Corn Kurkure Momo', 240)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥟</div><div class="menu-item-content"><span class="item-name">Chilli Momo (6Pc)</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Chilli Momo', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥟</div><div class="menu-item-content"><span class="item-name">Creamy Malai Momo (6Pc)</span><div class="item-bottom"><span class="price">₹220</span><button class="add-btn" onclick="addToCart('Creamy Malai Momo', 220)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥟</div><div class="menu-item-content"><span class="item-name">Peri Peri Malai Momo (6Pc)</span><div class="item-bottom"><span class="price">₹220</span><button class="add-btn" onclick="addToCart('Peri Peri Malai Momo', 220)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥟</div><div class="menu-item-content"><span class="item-name">Volcanic Salsa Momo (6Pc)</span><div class="item-bottom"><span class="price">₹240</span><button class="add-btn" onclick="addToCart('Volcanic Salsa Momo', 240)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥟</div><div class="menu-item-content"><span class="item-name">Fried Momos (6Pc)</span><div class="item-bottom"><span class="price">₹220</span><button class="add-btn" onclick="addToCart('Fried Momos', 220)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍜</div><div class="menu-item-content"><span class="item-name">Veg Hakka Noodles</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Veg Hakka Noodles', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍜</div><div class="menu-item-content"><span class="item-name">Chilli Garlic Noodles</span><div class="item-bottom"><span class="price">₹220</span><button class="add-btn" onclick="addToCart('Chilli Garlic Noodles', 220)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍜</div><div class="menu-item-content"><span class="item-name">Paneer Chilli Garlic Noodles</span><div class="item-bottom"><span class="price">₹240</span><button class="add-btn" onclick="addToCart('Paneer Chilli Garlic Noodles', 240)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- RICE BOWLS, NACHOS & SALADS -->
+        <section class="category-section" data-cat="bowls">
+            <h2 class="section-title">Rice Bowls, Nachos & Salads</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Italian Rice Bowl" class="menu-item-img" loading="lazy" src="assets2/Itlian Rice Bowl.webp" onerror="handleImgError(this, '🍚')" /><div class="menu-item-content"><span class="item-name">Italian Rice Bowl</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Italian Rice Bowl', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Paneer Makhani Rice Bowl" class="menu-item-img" loading="lazy" src="assets2/Paneer Makhani Rice Bowl.webp" onerror="handleImgError(this, '🍚')" /><div class="menu-item-content"><span class="item-name">Paneer Makhani Rice Bowl</span><div class="item-bottom"><span class="price">₹220</span><button class="add-btn" onclick="addToCart('Paneer Makhani Rice Bowl', 220)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Korean Rice Bowl" class="menu-item-img" loading="lazy" src="assets2/Korean Rice Bowl.webp" onerror="handleImgError(this, '🍚')" /><div class="menu-item-content"><span class="item-name">Korean Rice Bowl</span><div class="item-bottom"><span class="price">₹240</span><button class="add-btn" onclick="addToCart('Korean Rice Bowl', 240)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Pot Rice" class="menu-item-img" loading="lazy" src="assets2/Pot Rice (2).webp" onerror="handleImgError(this, '🍚')" /><div class="menu-item-content"><span class="item-name">Pot Rice</span><div class="item-bottom"><span class="price">₹250</span><button class="add-btn" onclick="addToCart('Pot Rice', 250)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Jalapeno Nachos" class="menu-item-img" loading="lazy" src="assets2/JALAPENO NACHOS.webp" onerror="handleImgError(this, '🧀')" /><div class="menu-item-content"><span class="item-name">Jalapeno Nachos</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Jalapeno Nachos', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Peri Peri Nachos" class="menu-item-img" loading="lazy" src="assets2/PERI PERI NACHOS.webp" onerror="handleImgError(this, '🧀')" /><div class="menu-item-content"><span class="item-name">Peri Peri Nachos</span><div class="item-bottom"><span class="price">₹200</span><button class="add-btn" onclick="addToCart('Peri Peri Nachos', 200)">+ Add</button></div></div></div>
+                <div class="menu-item"><img alt="Cheese & Herbs Nachos" class="menu-item-img" loading="lazy" src="assets2/CHEESE N_ HERBS NACHOS.webp" onerror="handleImgError(this, '🧀')" /><div class="menu-item-content"><span class="item-name">Cheese & Herbs Nachos</span><div class="item-bottom"><span class="price">₹220</span><button class="add-btn" onclick="addToCart('Cheese & Herbs Nachos', 220)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥗</div><div class="menu-item-content"><span class="item-name">Paneer Salad</span><div class="item-bottom"><span class="price">₹220</span><button class="add-btn" onclick="addToCart('Paneer Salad', 220)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥗</div><div class="menu-item-content"><span class="item-name">Soya Chunks Salad</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Soya Chunks Salad', 180)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🥗</div><div class="menu-item-content"><span class="item-name">Corn Salad</span><div class="item-bottom"><span class="price">₹180</span><button class="add-btn" onclick="addToCart('Corn Salad', 180)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- SIZZLING BROWNIES -->
+        <section class="category-section" data-cat="dessert">
+            <h2 class="section-title">Sizzling Brownies</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><img alt="Classic Brownie" class="menu-item-img" loading="lazy" src="assets2/BROWNIE SHAKE.webp" onerror="handleImgError(this, '🍫')" /><div class="menu-item-content"><span class="item-name">Classic Brownie</span><div class="item-bottom"><span class="price">₹210</span><button class="add-btn" onclick="addToCart('Classic Brownie', 210)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍫</div><div class="menu-item-content"><span class="item-name">Walnut Brownie</span><div class="item-bottom"><span class="price">₹240</span><button class="add-btn" onclick="addToCart('Walnut Brownie', 240)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">🍫</div><div class="menu-item-content"><span class="item-name">Double Chocolate Brownie</span><div class="item-bottom"><span class="price">₹260</span><button class="add-btn" onclick="addToCart('Double Chocolate Brownie', 260)">+ Add</button></div></div></div>
+            </div>
+        </section>
+
+        <!-- EXTRA ADD-ONS -->
+        <section class="category-section" data-cat="all">
+            <h2 class="section-title">Extra Add-ons</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-img-placeholder">➕</div><div class="menu-item-content"><span class="item-name">Mayo Dip</span><div class="item-bottom"><span class="price">₹30</span><button class="add-btn" onclick="addToCart('Mayo Dip', 30)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">➕</div><div class="menu-item-content"><span class="item-name">Salsa Dip</span><div class="item-bottom"><span class="price">₹30</span><button class="add-btn" onclick="addToCart('Salsa Dip', 30)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">➕</div><div class="menu-item-content"><span class="item-name">Extra Cheese</span><div class="item-bottom"><span class="price">₹30</span><button class="add-btn" onclick="addToCart('Extra Cheese', 30)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">➕</div><div class="menu-item-content"><span class="item-name">Extra Toppings</span><div class="item-bottom"><span class="price">₹30</span><button class="add-btn" onclick="addToCart('Extra Toppings', 30)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">➕</div><div class="menu-item-content"><span class="item-name">Extra Jalapeno</span><div class="item-bottom"><span class="price">₹30</span><button class="add-btn" onclick="addToCart('Extra Jalapeno', 30)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">➕</div><div class="menu-item-content"><span class="item-name">Extra Chipotle</span><div class="item-bottom"><span class="price">₹30</span><button class="add-btn" onclick="addToCart('Extra Chipotle', 30)">+ Add</button></div></div></div>
+                <div class="menu-item"><div class="menu-item-img-placeholder">💧</div><div class="menu-item-content"><span class="item-name">Water Bottle</span><div class="item-bottom"><span class="price">MRP</span></div></div></div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <span class="quality-quote">"We source only the finest, freshest ingredients for every dish we serve."</span>
+        <p>Baithack Balewadi | Open Daily: 9 AM to 10:30 PM</p>
+        <p style="margin-top: 5px; font-size: 0.8rem; color: #8C7D70;">SHOP NO 14, C WING, GROUND FLOOR, GRAVITY COMMERCIAL COMPLEX, PATIL NAGAR, near Kool Homes Arena, SOCIETY, Balewadi, Pune, Maharashtra 411045</p>
+    </footer>
+
+    <!-- Floating Cart Bar -->
+    <div id="floating-cart-btn" onclick="openCart()">
+        🛒 <span id="cart-count">0</span> Items | ₹<span id="cart-total-btn">0</span>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal-overlay" id="cart-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeCart()">×</button>
+            <h2 style="margin-top:0;">Your Order</h2>
+
+            <div id="cart-items-container" style="margin-top: 15px;">
+                <p style="color:#B3A597; text-align:center;">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-total">
+                Total: ₹<span id="cart-final-total">0</span>
+            </div>
+
+            <div id="min-order-alert" class="min-order-notice" style="display: none;">
+                ⚠️ Minimum order requirement is ₹199 to checkout.
+            </div>
+
+            <button class="checkout-btn" id="proceed-btn" onclick="showCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Customer Details Modal -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeCheckout()">×</button>
+            <h2 style="margin-top:0;">Customer Details</h2>
+            <p style="font-size:0.85rem; color:var(--text-soft); margin-bottom: 15px;">Mandatory details to complete your order.</p>
+
+            <form id="order-form" onsubmit="event.preventDefault(); confirmOrder();">
+                <div class="form-group">
+                    <label>Full Name <span class="req">*</span></label>
+                    <input type="text" id="cust-name" class="form-control" placeholder="Enter your full name" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number <span class="req">*</span></label>
+                    <input type="tel" id="cust-phone" class="form-control" maxlength="10" placeholder="10-digit mobile number" pattern="[6-9][0-9]{9}" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Complete Delivery Address <span class="req">*</span></label>
+                    <textarea id="cust-address" class="form-control" rows="3" placeholder="Flat No, Building Name, Street, Landmark" required></textarea>
+                </div>
+
+                <p style="font-size: 0.8rem; color: var(--accent); margin-bottom: 10px;">🛵 Free Delivery within 1 km radius.</p>
+
+                <button type="submit" class="checkout-btn">Confirm Order via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Handle broken image fallbacks cleanly without external network calls
+        function handleImgError(img, icon = '🍽️') {
+            img.onerror = null;
+            const placeholder = document.createElement('div');
+            placeholder.className = 'menu-item-img-placeholder';
+            placeholder.textContent = icon;
+            img.replaceWith(placeholder);
+        }
+
+        function handleLogoError(img) {
+            img.onerror = null;
+            const fallback = document.createElement('div');
+            fallback.className = 'logo-fallback';
+            fallback.textContent = 'BAITHACK';
+            img.replaceWith(fallback);
+        }
+
+        // Search & Filter
+        const searchInput = document.getElementById("search-box");
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const categories = document.querySelectorAll(".category-section");
+
+        function filterMenu() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const activeCat = document.querySelector(".filter-btn.active").getAttribute("data-cat");
+
+            categories.forEach(section => {
+                const sectionCat = section.getAttribute("data-cat");
+                const isCatMatch = (activeCat === "all" || sectionCat === activeCat);
+                let hasVisibleItems = false;
+
+                const items = section.querySelectorAll(".menu-item");
+                items.forEach(item => {
+                    const itemName = item.querySelector(".item-name").textContent.toLowerCase();
+                    const isSearchMatch = itemName.includes(searchTerm);
+
+                    if (isCatMatch && isSearchMatch) {
+                        item.style.display = "flex";
+                        hasVisibleItems = true;
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+
+                section.style.display = hasVisibleItems ? "block" : "none";
+            });
+        }
+
+        searchInput.addEventListener("keyup", filterMenu);
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                filterBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                filterMenu();
+            });
+        });
+
+        // Cart Logic
+        let cart = [];
+        const MIN_ORDER_AMOUNT = 199;
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartTotalBtn = document.getElementById('cart-total-btn');
+            const cartFinalTotal = document.getElementById('cart-final-total');
+            const cartContainer = document.getElementById('cart-items-container');
+            const floatBtn = document.getElementById('floating-cart-btn');
+            const minNotice = document.getElementById('min-order-alert');
+            const proceedBtn = document.getElementById('proceed-btn');
+
+            let total = 0;
+            let count = 0;
+
+            cartContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p style="color:#B3A597; text-align:center;">Your cart is empty.</p>';
+                floatBtn.style.display = 'none';
+            } else {
+                floatBtn.style.display = 'block';
+
+                cart.forEach((item, index) => {
+                    total += item.price * item.qty;
+                    count += item.qty;
+
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'cart-item';
+                    itemDiv.innerHTML = `
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <small style="color:#B3A597">₹${item.price} each</small>
+                        </div>
+                        <div class="cart-controls">
+                            <button onclick="changeQty(${index}, -1)">-</button>
+                            <span style="margin: 0 8px;">${item.qty}</span>
+                            <button onclick="changeQty(${index}, 1)">+</button>
+                        </div>
+                    `;
+                    cartContainer.appendChild(itemDiv);
+                });
+            }
+
+            cartCount.textContent = count;
+            cartTotalBtn.textContent = total;
+            cartFinalTotal.textContent = total;
+
+            if (total < MIN_ORDER_AMOUNT && cart.length > 0) {
+                minNotice.style.display = 'block';
+                proceedBtn.disabled = true;
+                proceedBtn.style.opacity = '0.5';
+                proceedBtn.style.cursor = 'not-allowed';
+            } else {
+                minNotice.style.display = 'none';
+                proceedBtn.disabled = false;
+                proceedBtn.style.opacity = '1';
+                proceedBtn.style.cursor = 'pointer';
+            }
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function openCart() {
+            document.getElementById('cart-modal').style.display = 'flex';
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+
+        function showCheckout() {
+            let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            if (total < MIN_ORDER_AMOUNT) {
+                alert(`Minimum order value is ₹${MIN_ORDER_AMOUNT}. Please add items worth ₹${MIN_ORDER_AMOUNT - total} more.`);
+                return;
+            }
+            closeCart();
+            document.getElementById('checkout-modal').style.display = 'flex';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkout-modal').style.display = 'none';
+        }
+
+        function confirmOrder() {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+
+            if (!name || !phone || !address) {
+                alert('⚠️ Name, Phone Number, and Address are mandatory!');
+                return;
+            }
+
+            if (!/^[6-9]\d{9}$/.test(phone)) {
+                alert('⚠️ Please enter a valid 10-digit Indian phone number.');
+                return;
+            }
+
+            let orderDetails = '';
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                orderDetails += `• ${item.name} x ${item.qty} = ₹${itemTotal}\n`;
+            });
+
+            let textMessage = `*New Order - Baithack Balewadi*\n\n` +
+                `*Customer:* ${name}\n` +
+                `*Phone:* ${phone}\n` +
+                `*Delivery Address:* ${address}\n\n` +
+                `*Order Items:*\n${orderDetails}\n` +
+                `*Total Amount:* ₹${total}`;
+
+            const encodedMessage = encodeURIComponent(textMessage);
+            window.open(`https://wa.me/918527191117?text=${encodedMessage}`, '_blank');
+
+            cart = [];
+            updateCartUI();
+            closeCheckout();
+            document.getElementById('order-form').reset();
+        }
+
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
